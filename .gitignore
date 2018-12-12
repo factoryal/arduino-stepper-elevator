@@ -328,3 +328,10 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+*.vcxproj
+*.filters
+__vm/.arduino-stepper-elevator.vsarduino.h
+__vm/Compile.vmps.xml
+__vm/Configuration.Debug.vmps.xml
+__vm/Upload.vmps.xml
+arduino-stepper-elevator.sln
