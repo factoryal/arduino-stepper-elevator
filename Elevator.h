@@ -11,7 +11,7 @@ private:
 	int nowFloor = 0;
 	int destFloor = 0;
 	int nowStep = 0;
-	int floorStep[5] = { 0, 1000, 2000, 3000, 4000 };
+	int floorStep[5] = { 0, 1200, 2400, 3600, 4800 };
 	
 	void moveHeight(int dStep) {
 		if (dStep > 0) {
@@ -39,6 +39,9 @@ public:
 		step = stepPin;
 		dir = dirPin;
 		endstop = endstopPin;
+    pinMode(step, 1);
+    pinMode(dir, 1);
+    pinMode(endstop, 2);
 	}
 
 	int getFloor() {
@@ -53,8 +56,13 @@ public:
 	}
 
 	void home() {
-		int dStep = -500;
-		moveHeight(dStep);
+    digitalWrite(dir, 1);
+		while(digitalRead(endstop)){
+      digitalWrite(step, 1);
+      delay(1);
+      digitalWrite(step, 0);
+      delay(1);
+		}
 	}
 
 };
